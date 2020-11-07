@@ -29,7 +29,7 @@ To use it, select a game, scan the qr with FBI's remote installer
 
 ```console
 > git clone https://github.com/ghost-land/ge-desktop.git
-> cd NumWorks-Emulator
+> cd ge-desktop
 > npm install
 ```
 
