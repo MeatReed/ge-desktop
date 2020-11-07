@@ -7,7 +7,7 @@ const path                          = require('path')
 const semver                        = require('semver')
 const url                           = require('url')
 const axios = require('axios');
-let thisversion='1.0'
+let thisversion='1.0.0'
 // const low = require('lowdb')
 // const FileSync = require('lowdb/adapters/FileSync')
  
@@ -45,19 +45,25 @@ function createWindow() {
             protocol: 'file:',
             slashes: true
         })
-    }
-    else if(response.data.version!=thisversion){
-        var target = url.format({
-            pathname: path.join(__dirname, 'app', 'outofdate.html'),
-            protocol: 'file:',
-            slashes: true
-        })
-    }
-    else{
-        var target = 'http://ged.stereo18.ml'
+        win.loadURL(target)
     }
     
-  win.loadURL(target)
+    else{
+        axios.get('http://ged.stereo18.ml/status.json').then(function (response) {
+            let latest = response.data.tag
+            if(latest!=thisversion){
+                var target = url.format({
+                    pathname: path.join(__dirname, 'app', 'outofdate.html'),
+                    protocol: 'file:',
+                    slashes: true
+                })
+            }
+            else{var target = 'http://ged.stereo18.ml'}
+            win.loadURL(target)
+        })
+    }
+    
+  
   })
 
 
