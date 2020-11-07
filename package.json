@@ -1,0 +1,48 @@
+{
+  "name": "ge-desktop",
+  "version": "1.0.0",
+  "productName": "Ghost eShop Desktop",
+  "description": "An alternative eShop for 3ds",
+  "author": "ghost-land (https://github.com/ghost-land)",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/ghost-land/ge-desktop",
+  "bugs": {
+    "url": "https://github.com/ghost-land/ge-desktop/issues"
+  },
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "cilinux": "node build.js WINDOWS && node build.js LINUX",
+    "cidarwin": "node build.js MAC",
+    "dist": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
+    "dist:win": "npm run dist -- WINDOWS",
+    "dist:mac": "npm run dist -- MAC",
+    "dist:linux": "npm run dist -- LINUX",
+    "lint": "eslint --config .eslintrc.json .",
+    "publish": "electron-updater . -p always"
+  },
+  "engines": {
+    "node": "12.x.x"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "ejs": "^3.1.2",
+    "ejs-electron": "^2.0.3",
+    "electron-json-config": "^1.5.3",
+    "electron-updater": "^4.3.4",
+    "fs-extra": "^9.0.0",
+    "jquery": "^3.5.1",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0",
+    "eslint": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghost-land/ge-desktop.git"
+  }
+}

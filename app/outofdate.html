@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost eShop Desktop - Out of date</title>
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+    <h1>You don't have the latest version of Ghost eShop Desktop !</h1>
+    <div id='lol'>Please update this !</div>
+    <script>
+        const axios = require('axios')
+        axios.get('http://ged.stereo18.ml/status.json')
+  .then(function (response) {
+      let latest = response.data.version
+      document.getElementById("lol").innerHTML='The latest version is '+latest
+        
+  })
+  
+    </script>
+</body>
+</html>
