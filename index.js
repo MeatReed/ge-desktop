@@ -49,8 +49,9 @@ function createWindow() {
     }
     
     else{
-        axios.get('http://ged.stereo18.ml/status.json').then(function (response) {
-            let latest = response.data.tag
+        axios.get('https://api.github.com/repos/ghost-land/ge-desktop/releases/latest').then(function (response) {
+            let latest = response.data.tag_name
+            console.log(latest)
             if(latest!=thisversion){
                 var target = url.format({
                     pathname: path.join(__dirname, 'app', 'outofdate.html'),
