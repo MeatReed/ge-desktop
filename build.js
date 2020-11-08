@@ -1,3 +1,5 @@
+// By the ghost land team
+
 const builder = require('electron-builder')
 const Platform = builder.Platform
 

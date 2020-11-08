@@ -1,17 +1,13 @@
+// By the ghost land team
+
 // Requirements
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path                          = require('path')
 const url                           = require('url')
 const axios = require('axios')
-let thisversion='1.0.0'
-// const low = require('lowdb')
-// const FileSync = require('lowdb/adapters/FileSync')
- 
-// const adapter = new FileSync('db.json')
-// const db = low(adapter)
+const package = require('./package.json')
+let thisversion=package.version
 
-// Disable hardware acceleration.
-// https://electronjs.org/docs/tutorial/offscreen-rendering
 app.disableHardwareAcceleration()
 
 // https://github.com/electron/electron/issues/18397
@@ -47,7 +43,7 @@ function createWindow() {
     else{
         axios.get('https://api.github.com/repos/ghost-land/ge-desktop/releases/latest').then(function (response) {
             let latest = response.data.tag_name
-            if (latest!=thisversion){
+            if (latest>thisversion){
                 var target = url.format({
                     pathname: path.join(__dirname, 'app', 'outofdate.html'),
                     protocol: 'file:',
