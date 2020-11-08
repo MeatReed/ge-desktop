@@ -16,11 +16,11 @@
     <script>
         const axios = require('axios')
         axios.get('https://api.github.com/repos/ghost-land/ge-desktop/releases/latest')
-  .then(function (response) {
-      let latest = response.data.tag_name
-      document.getElementById("lol").innerHTML='The latest version is '+latest
-        
-  })
+        .then(function (response) {
+            let latest = response.data.tag_name
+            document.getElementById("lol").innerHTML='The latest version is '+latest
+                
+        })
   
     </script>
 </body>
