@@ -47,7 +47,7 @@ builder.build({
             category: 'public.app-category.games'
         },
         linux: {
-            target: 'AppImage',
+            target: 'deb',
             maintainer: 'ghost-land',
             vendor: 'ghost-land',
             synopsis: 'Ghost eShop Desktop',
